@@ -24,7 +24,7 @@ static RingBuffer rbuf;
 
 void kkehandler( KEY_EVENT key_event )
 {
-    //if (prev_key_event.key_data == key_event.key_data ) return;
+    if (prev_key_event.key_data == key_event.key_data ) return;
     prev_key_event.key_data = key_event.key_data;
 	if (key_event.down != 0) {
 	  if (key_event.ascii != 0) {
@@ -44,6 +44,7 @@ int main() {
     printf("term: use Ctrl-Q to exit.\n");
     init_buffer(&rbuf);
     vdp_key_init();
+    vdp_keyboard_control(300, 200, 0);
     vdp_set_key_event_handler( kkehandler );
     waitvblank();
     waitvblank();
