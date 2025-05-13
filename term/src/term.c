@@ -24,7 +24,7 @@ static RingBuffer rbuf;
 
 void kkehandler( KEY_EVENT key_event )
 {
-    if (prev_key_event.key_data == key_event.key_data ) return;
+    //if (prev_key_event.key_data == key_event.key_data ) return;
     prev_key_event.key_data = key_event.key_data;
 	if (key_event.down != 0) {
 	  if (key_event.ascii != 0) {
