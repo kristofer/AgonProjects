@@ -12,7 +12,7 @@ typedef struct {
 RingBuffer bufc;
 
 // Initialize the buffer
-void init_buffer(RingBuffer *buffer) {
+void init_ring_buffer(RingBuffer *buffer) {
     printf("init_buffer\n");
     buffer->head = 0;
     buffer->tail = 0;

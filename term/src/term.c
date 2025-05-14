@@ -42,14 +42,13 @@ void kkehandler( KEY_EVENT key_event )
 
 int main() {
     printf("term: use Ctrl-Q to exit.\n");
-    init_buffer(&rbuf);
+    init_ring_buffer(&rbuf);
     vdp_key_init();
-    vdp_keyboard_control(300, 200, 0);
+    //vdp_keyboard_control(300, 200, 0);
     vdp_set_key_event_handler( kkehandler );
     waitvblank();
     waitvblank();
 
-    //vdp_terminal_mode();
     char ch;
     while (true) {
         if (has_next_char(&rbuf)) {
@@ -59,7 +58,6 @@ int main() {
         if (ch == '\x11') break;
   		vdp_update_key_state();
     }
-    //vdp_terminal_mode();
 }
 #endif
 
